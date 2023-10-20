@@ -1,5 +1,4 @@
 ```
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
 Developed by: Vanitha S
 Register Number: 212222100057
 ```
@@ -82,6 +81,7 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 
 ### PROGRAM :
+##### UP COUNTER:
 ```
 module upcounter(D,C,B,A,CLK);
 output reg D,C,B,A;
@@ -95,9 +95,21 @@ begin
 end
 endmodule
 ```
+##### DOWN COUNTER:
+```
+module downcounter(A,B,C,D,CLK);
+input CLK;
+output reg A,B,C,D;
+always@(posedge CLK)
+begin
+	A=(((~B)&(~C)&(~D))^A);
+	B=(((~C)&(~D))^B);
+	C=((~D)^(C));
+	D=1^(D);
+end
+endmodule
 
-
-
+```
 
 ### RTL DIAGRAM:
 ##### UP COUNTER:
@@ -112,7 +124,8 @@ endmodule
 ##### UP COUNTER:
 ![image](https://github.com/Vanitha-SM/Exp-7-Synchornous-counters-/assets/119557985/c125587d-32ff-43f9-87a5-30bfed8e3412)
 
-
+##### DOWN COUNTER:
+![image](https://github.com/Vanitha-SM/Exp-7-Synchornous-counters-/assets/119557985/23e5c131-8603-4643-9a48-10ecc506e5d7)
 
 ### OUTPUT WAVEFORM:
 ##### UP COUNTER:
@@ -123,3 +136,4 @@ endmodule
 ![image](https://github.com/Vanitha-SM/Exp-7-Synchornous-counters-/assets/119557985/c5f3bb37-8f11-45da-b8df-f5cbf4db42a8)
 
 ### RESULT: 
+Thus Synchornous counters up counter and down counter circuit are studied and the truth table for different logic gates are verified.
